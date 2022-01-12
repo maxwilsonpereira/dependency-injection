@@ -2,21 +2,21 @@
 // otherwise, the state will always be created again.
 // If you are not updating a state on the injected class, than it doesn't need to be a singleton.
 
-import { useState, useEffect } from "react";
-import { container } from "../inversify.config";
-import { IFetchUsersService } from "../Interfaces/IFetchUsersService";
+import { useState, useEffect } from 'react'
+import { container } from '../inversify.config'
+import { IFetchUsersService } from '../interfaces/IFetchUsersService'
 
 const FetchUsers: React.FunctionComponent = () => {
   // REACT ONLY ACCEPTS PROPERTY INJECTION! NO CONSTRUCTOR INJECTION!
 
   const _fetchUsersService: IFetchUsersService =
-    container.get<IFetchUsersService>("fetchUsersServiceProvider");
+    container.get<IFetchUsersService>('fetchUsersServiceProvider')
 
-  const [usersFetched, setUsersFetched] = useState(_fetchUsersService.users);
+  const [usersFetched, setUsersFetched] = useState(_fetchUsersService.users)
 
   useEffect(() => {
-    _fetchUsersService.fetchUsers();
-  }, []);
+    _fetchUsersService.fetchUsers()
+  }, [])
 
   return (
     <div>
@@ -26,7 +26,7 @@ const FetchUsers: React.FunctionComponent = () => {
       </p>
 
       <button
-        style={{ margin: "10px 0" }}
+        style={{ margin: '10px 0' }}
         type="button"
         className="buttonMax"
         onClick={() => setUsersFetched(_fetchUsersService.users)}
@@ -37,12 +37,12 @@ const FetchUsers: React.FunctionComponent = () => {
       {usersFetched.map((user: any) => (
         <p
           key={user.id}
-          style={{ padding: "0px 20px", margin: 0, color: "darkred" }}
+          style={{ padding: '0px 20px', margin: 0, color: 'darkred' }}
         >
           {user.name}
         </p>
       ))}
     </div>
-  );
-};
-export default FetchUsers;
+  )
+}
+export default FetchUsers

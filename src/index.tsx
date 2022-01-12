@@ -1,19 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
 // npm install react-router-dom@6
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./index.css";
-import { Provider } from "inversify-react";
-import { container } from "./inversify.config";
-import Navigation from "./components/Navigation";
-import Home from "./routes/Home";
-import FetchUsers from "./routes/Fetchusers";
-import About from "./routes/About";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './index.css'
+import { Provider } from 'inversify-react'
+import { container } from './inversify.config'
+import Navigation from './components/Navigation'
+import Home from './routes/Home'
+import FetchUsers from './routes/Fetchusers'
+import About from './routes/About'
 
-import { CounterProvider } from "./providers/CounterProvider";
-import { CounterService } from "./services/CounterService";
+import { CounterProvider } from './context/CounterContext'
+import { CounterService } from './services/CounterService'
 
-const counterService: CounterService = new CounterService();
+const counterService: CounterService = new CounterService()
 
 ReactDOM.render(
   <React.StrictMode>
@@ -30,5 +30,5 @@ ReactDOM.render(
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById("root")
-);
+  document.getElementById('root')
+)
