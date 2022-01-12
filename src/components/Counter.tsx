@@ -28,14 +28,13 @@ export default class Counter extends React.PureComponent<
       <React.Fragment>
         <button
           type="button"
-          className="btn btn-primary btn-lg"
+          className="buttonMax"
           onClick={() => {
             this.onIncrement();
           }}
         >
-          Increment
+          INCREMENT
         </button>
-
         <h3 aria-live="polite">COUNTER: {this.state.count}</h3>
       </React.Fragment>
     );
