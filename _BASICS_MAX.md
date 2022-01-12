@@ -1,10 +1,12 @@
 # Dependency Injection with React using InversifyJS Inversion of Control Container
 
+**react-inversify provides ways to map component's dependencies to React props**
+
 ### TUTORIAL FROM:
 
-PAREI EM 43m!
 https://youtu.be/h_F0gUleybo
 https://github.com/xipooo/reactdidemo
+https://github.com/Kukkimonsuta/inversify-react
 
 ## INSTALATION:
 
