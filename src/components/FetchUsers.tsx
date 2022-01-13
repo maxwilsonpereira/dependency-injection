@@ -8,7 +8,6 @@ import { IFetchUsersService } from '../interfaces/IFetchUsersService'
 
 const FetchUsers: React.FunctionComponent = () => {
   // REACT ONLY ACCEPTS PROPERTY INJECTION! NO CONSTRUCTOR INJECTION!
-
   const _fetchUsersService: IFetchUsersService =
     container.get<IFetchUsersService>('fetchUsersServiceProvider')
 
@@ -20,11 +19,18 @@ const FetchUsers: React.FunctionComponent = () => {
 
   return (
     <div>
+      <h2>Dependency Injection</h2>
+      <p>
+        Count is a variable from CounterService that is being injected into
+        FetchUsersService:
+      </p>
+      COUNT (from CounterService):{' '}
+      {_fetchUsersService.injectedCounterServiceCount}
+      <hr />
       <p>
         Fetch Users Component is using Dependency Injection to fetch the users
         from <b>https://jsonplaceholder.typicode.com/users:</b>
       </p>
-
       <button
         style={{ margin: '10px 0' }}
         type="button"
@@ -33,7 +39,6 @@ const FetchUsers: React.FunctionComponent = () => {
       >
         SHOW FETCHED USERS
       </button>
-
       {usersFetched.map((user: any) => (
         <p
           key={user.id}

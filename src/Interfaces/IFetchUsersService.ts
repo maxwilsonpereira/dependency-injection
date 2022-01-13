@@ -1,4 +1,5 @@
 export interface IFetchUsersService {
-  get users(): any[];
-  fetchUsers(): void;
+  get users(): any[]
+  injectedCounterServiceCount: number
+  fetchUsers(): void
 }

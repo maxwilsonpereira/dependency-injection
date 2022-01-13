@@ -1,4 +1,4 @@
 export interface ICounterService {
-  get count(): number;
-  increment(): void;
+  get count(): number
+  increment(): void
 }
