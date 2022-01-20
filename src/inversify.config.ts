@@ -11,12 +11,11 @@ import { IFetchUsersService } from './interfaces/IFetchUsersService'
 let container = new Container()
 // on a request for CounterService, create a instance of CounterService:
 // container.bind(CounterService).toSelf();
-// ***** MAKE IT A SINGLETON: It will exist ONLY ONE instance of CounterService! *****
 // BINDING TO INTERFACE - THE BETTER WAY TO DO IT, so you can implement different interfaces!
 container
   .bind<ICounterService>('counterServiceProvider')
   .to(CounterService)
-  .inSingletonScope()
+  .inSingletonScope() // MAKE IT A SINGLETON: It will exist ONLY ONE instance of CounterService!
 
 container
   .bind<IFetchUsersService>('fetchUsersServiceProvider')
@@ -25,5 +24,4 @@ container
 
 // BINDING DIRECTLY TO THE SERVICE:
 container.bind(CounterService).toSelf()
-// container.bind(FetchUsersService).toSelf();
 export { container }

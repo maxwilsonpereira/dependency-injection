@@ -1,6 +1,9 @@
 import React from 'react'
 import { resolve } from 'inversify-react'
 import { ICounterService } from '../interfaces/ICounterService'
+import { LoggingService } from '../services/LoggingService'
+
+const loggingService = LoggingService.getInstance('HomeComponent')
 
 export default class Counter extends React.PureComponent<
   {},
@@ -31,11 +34,18 @@ export default class Counter extends React.PureComponent<
           className="buttonMax"
           onClick={() => {
             this.onIncrement()
+            loggingService?.info(
+              'Component Counter',
+              this._counterService.count
+            )
           }}
         >
           INCREMENT
         </button>
-        <h3 aria-live="polite">COUNTER: {this.state.count}</h3>
+        <h3 aria-live="polite">COUNTER SATE: {this.state.count}</h3>
+        <h3 aria-live="polite">
+          COUNTER INJECTION: {this._counterService.count}
+        </h3>
       </React.Fragment>
     )
   }
